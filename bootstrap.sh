@@ -33,7 +33,8 @@ echo "Complteted installing python3 and git"
 
 # installing ansible boto3 and botocore
 # source $VENV_DIR/bin/activate
-pip install ansible boto3 botocore &>> $LOG_FILE
+dnf install ansible -y &>> $LOG_FILE
+pip install boto3 botocore &>> $LOG_FILE
 echo "Installing ansible boto3 botocore SUCCESS"
 cd $REPO_DIR
 
