@@ -29,7 +29,7 @@ variable "service_name" {
     # }
     # frontend = {
     #   rule_priority = 10
-    }
+    # }
   }
 }
 
