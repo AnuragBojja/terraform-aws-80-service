@@ -21,7 +21,7 @@ mkdir -p "$REPO_DIR"
 mkdir -p "$LOG_DIR"
 touch "$LOG_FILE"
 touch "$LOG_DIR/ansible.log"
-
+chmod 644 "$LOG_DIR/ansible.log"
 #installing Python 
 dnf install python3 git -y &>> $LOG_FILE
 echo "Complteted installing python3 and git"
