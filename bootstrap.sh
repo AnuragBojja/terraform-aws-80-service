@@ -10,7 +10,7 @@ echo "started '$service_name'"
 
 REPO_URL=https://github.com/AnuragBojja/terraform-anisble-roboshop.git
 REPO_DIR=/opt/terraform/ansible
-VENV_DIR=$REPO_DIR/ansible-venv
+# VENV_DIR=$REPO_DIR/ansible-venv
 ANSIBLE_DIR=terraform-anisble-roboshop
 LOG_DIR=/var/log/roboshoplogs
 LOGFILE_NAME=${service_name}-boostrap.log
@@ -26,13 +26,13 @@ touch "$LOG_DIR/ansible.log"
 dnf install python3 git -y &>> $LOG_FILE
 echo "Complteted installing python3 and git"
 # checking for venv dir 
-if [ ! -d "$VENV_DIR" ]; then
-    python3 -m venv "$VENV_DIR" &>> $LOG_FILE
-fi
-echo "completed creating venv"
+# if [ ! -d "$VENV_DIR" ]; then
+#     python3 -m venv "$VENV_DIR" &>> $LOG_FILE
+# fi
+# echo "completed creating venv"
 
 # installing ansible boto3 and botocore
-source $VENV_DIR/bin/activate
+# source $VENV_DIR/bin/activate
 pip install ansible boto3 botocore &>> $LOG_FILE
 echo "Installing ansible boto3 botocore SUCCESS"
 cd $REPO_DIR
@@ -49,6 +49,7 @@ else
 fi 
 echo "Started ansible playbook"
 echo "enviroment is '$env'"
-$VENV_DIR/bin/ansible-playbook -e service_name=$service_name -e env=$env -e ansible_python_interpreter=$VENV_DIR/bin/python main.yaml
+# $VENV_DIR/bin/ansible-playbook -e service_name=$service_name -e env=$env -e ansible_python_interpreter=$VENV_DIR/bin/python main.yaml
+ansible-playbook -e service_name=$service_name -e env=$env main.yaml
 
 echo "comleted playbook"
