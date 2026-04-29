@@ -21,9 +21,9 @@ variable "service_name" {
     cart = {
       rule_priority = 30
     }
-    # payment = {
-    #   rule_priority = 40
-    # }
+    payment = {
+      rule_priority = 40
+    }
     shipping = {
       rule_priority = 50
     }
